@@ -1,4 +1,5 @@
-import {signIn, signOut, useSession} from "next-auth/react"
+import {signIn, signOut, useSession} from "next-auth/react";
+import Image from "next/image";
 
 export const Header = () => {
     const {data: sessionData} = useSession();
@@ -13,7 +14,7 @@ export const Header = () => {
                     {sessionData?.user ? (
                         <label tabIndex={0} className="btn-ghost btn-circle btn" onClick={() => void signOut()}>
                             <div className="w-10 rounded-full">
-                                <img src={sessionData?.user?.image ?? ''} alt={sessionData?.user?.name ?? ''} />
+                                <Image src={sessionData?.user?.image ?? ''} alt={sessionData?.user?.name ?? ''} />
                             </div>
                         </label>
                     ) : (
