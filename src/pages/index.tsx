@@ -1,4 +1,4 @@
-import { signIn, signOut, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import Head from "next/head";
 import { api, type RouterOutputs } from "~/utils/api";
 import { Header } from "~/components/Header";
@@ -94,8 +94,8 @@ return (
     <div className="col-span-3">
       <div>
         {notes?.map((note) => (
-          <div className="mt-5">
-            <NoteCard key={note.id} note={note} onDelete={() => void deleteNote.mutate({ id: note.id })} />
+          <div key={note.id} className="mt-5">
+            <NoteCard note={note} onDelete={() => void deleteNote.mutate({ id: note.id })} />
           </div>
         ))}
       </div>
